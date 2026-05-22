@@ -1,4 +1,5 @@
 import time
+import _2_inventory
 
 dayCounter = 1
 money = 100.00
@@ -7,6 +8,35 @@ debt = None
 maxDays = None
 cityName = "Littletown"
 
+citiesDic = {
+    "Littletown": ["Ironvalle"],
+    "Ironvalle": ["Littletown", "Lumaria"],
+    "Lumaria": ["Ironvalle", "Unitown"],
+    "Unitown": ["Lumaria", "Academy"],
+    "Academy": ["Lumaria"]
+}
+def travelFunc(city):
+    global dayCounter
+
+    print("Where do you want to go?")
+
+    if city in citiesDic:
+        print("You can go to:", citiesDic[city])
+    else:
+        print("City not found.")
+        return city
+
+    goto = input("Type the city: ").capitalize()
+
+    if goto in citiesDic[city]:
+        print(f"Traveling to {goto}...")
+        time.sleep(4.5)
+        dayCounter += 1
+        return goto
+        exit()
+    else:
+        print("You can't go there.")
+        return city
 
 
 def dialogTime():
@@ -20,6 +50,7 @@ def startGame():
             break
         elif startButton == "N":
             print("Okay, until next time!")
+            exit()
         else:
             print("Please, choose a valid option.")
 
@@ -98,3 +129,17 @@ menuUI2 = [
 while True:
     print("\n".join(menuUI1))
     actionButton = input("\nWhat do you want to do now?: ")
+
+    if actionButton == "1":
+        cityName = travelFunc(cityName)
+        goto = travelFunc(cityName)
+        break
+    elif actionButton == "2":
+        _2_inventory.showInventory()
+    elif actionButton == "3":
+        break
+    else:
+        print("Please, choose a valid option.")
+
+while True:
+    print("\n".join(menuUI2))
