@@ -336,7 +336,18 @@ while True:
     elif actionButton == "3":
 
         _3_shop.showShop(cityName)
-        input("\nPress any key to leave the shop...")
+        actionButton = input("Do you want to buy something? (Y/N): ").upper()
+        if actionButton == "Y":
+            _3_shop.buyItem(cityName)
+            input("\nPress any key to leave the shop...")
+
+        elif actionButton == "N":
+            print("\nLeaving shop...")
+            time.sleep(2.5)
+
+        else:
+            print("Please, choose a valid option.")
+
 
     elif actionButton == "4":
 
