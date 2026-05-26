@@ -331,11 +331,12 @@ while True:
     elif actionButton == "2":
 
         _2_inventory.showInventory()
+        input("\nPress any key to leave the inventory...")
 
     elif actionButton == "3":
 
         _3_shop.showShop(cityName)
-        input("\nPress ENTER to leave the shop...")
+        input("\nPress any key to leave the shop...")
 
     elif actionButton == "4":
 
