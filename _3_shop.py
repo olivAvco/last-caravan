@@ -221,7 +221,7 @@ def showSellOptions(city):
                             if sellAmount > _2_inventory.getItemCount("Robots"):
                                 print("\nYou don't have that much Robots to sell.")
                             else:
-                                totalEarnings = sellAmount * sellRobotsPrice
+                                totalEarnings = sellAmount * sellRobotPrice
                                 print(f"\nYou sold {sellAmount} units of Robots for {totalEarnings} coins.")
                                 money += totalEarnings
                                 roundedMoney = round(money, 2)
@@ -250,7 +250,7 @@ def buyFunc(city):
     elif city == "Ironvalle":
 
         print(f"The price of Iron is {ironPrice} coins per unit.")
-        buyButton = input("Do you want to buy Iron? (y/n) ").lower
+        buyButton = input("Do you want to buy Iron? (y/n) ").lower()
         
         if buyButton == "y":
             print("How much Iron do you want to buy?")
